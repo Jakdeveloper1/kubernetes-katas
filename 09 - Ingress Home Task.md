@@ -1,4 +1,4 @@
-## ****Ingress** in Kubernetes?** - Home Task
+## ****Ingress** in Kubernetes?** - Class/Home Task
 
 When you deploy apps in Kubernetes (K8s), they usually run inside the cluster, hidden from the outside world.  
 If you want people (users, browsers, mobile apps) to **access** your app from the internet, you need a way to **expose** it.
