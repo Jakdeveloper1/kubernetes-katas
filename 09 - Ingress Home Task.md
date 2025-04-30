@@ -43,21 +43,29 @@ Next, you expose the Deployment using a **Service**. This service will be the on
 Now, you define an Ingress that will route traffic from the outside world to the `nginx-service`.
 
     apiVersion: networking.k8s.io/v1
-    kind: Ingress
-    metadata:
-      name: nginx-ingress
-    spec:
-      rules:
-        - host: yourdomain.com
-          http:
-            paths:
-              - path: /
-                pathType: Prefix
-                backend:
-                  service:
-                    name: nginx-service
-                    port:
-                      number: 80
+kind: Ingress
+metadata:
+  name: my-ingress
+spec:
+  rules:
+    - host: yourdomain.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: frontend-service
+                port:
+                  number: 80
+          - path: /api
+            pathType: Prefix
+            backend:
+              service:
+                name: backend-service
+                port:
+                  number: 80
+
 
 
 ### What Happens Here:
